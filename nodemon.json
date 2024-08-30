@@ -1,7 +1,6 @@
 {
-  "watch": ["src"],
-  "ignore": ["src/**/*.test.ts", "node_modules"],
-  "ext": "ts,mjs,js,json,graphql",
-  "exec": "etsc && node ./build/app.js",
+  "ignore": ["src/**/*.test.ts", "node_modules", "src/build/**", "dist/**"],
+  "ext": "ts,mjs,js,json",
+  "exec": "rm -rf dist && tsoa spec-and-routes && etsc && node ./dist/server.js",
   "legacyWatch": true
 }

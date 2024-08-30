@@ -1,26 +1,29 @@
-import express, { Request, Response } from "express";
-import { TestController } from "./test.controller";
-import { StudentController } from "./student.controller";
+// src/app.ts
+import express, {
+  json,
+  urlencoded,
+  Response as ExResponse,
+  Request as ExRequest,
+} from "express";
+import swaggerUi from "swagger-ui-express";
+import { RegisterRoutes } from "./build/routes";
 
-const app = express();
+export const app = express();
 
-app.use(express.json());
+// Use body parser to read sent json payloads
+app.use(
+  urlencoded({
+    extended: true,
+  })
+);
+app.use(json());
 
-app.get("/", (req: Request, res: Response): Response => {
-  return res.json({ message: "Hello, World Wide Web!" });
+app.use("/docs", swaggerUi.serve, async (_req: ExRequest, res: ExResponse) => {
+  return res.send(
+    swaggerUi.generateHTML(
+      await import("./build/swagger.json", { with: { type: "json" } })
+    )
+  );
 });
 
-TestController(app);
-StudentController(app);
-const start = async (): Promise<void> => {
-  try {
-    app.listen(3000, () => {
-      console.log("Server started on port 3000");
-    });
-  } catch (error) {
-    console.error(error);
-    process.exit(1);
-  }
-};
-
-void start();
+RegisterRoutes(app);
