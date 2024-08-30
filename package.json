@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon",
-    "dev-swagger": "concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
+    "dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
     "build": "etsc",
-    "start": "node ./dist/server.js"
+    "start": "node ./dist/src/server.js"
   },
   "keywords": [],
   "author": "",

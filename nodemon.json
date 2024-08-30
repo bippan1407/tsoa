@@ -1,6 +1,6 @@
 {
-  "ignore": ["src/**/*.test.ts", "node_modules", "src/build/**", "dist/**"],
+  "ignore": ["src/**/*.test.ts", "node_modules", "swagger/", "dist/"],
   "ext": "ts,mjs,js,json",
-  "exec": "rm -rf dist && tsoa spec-and-routes && etsc && node ./dist/server.js",
+  "exec": "etsc && node ./dist/src/server.js",
   "legacyWatch": true
 }

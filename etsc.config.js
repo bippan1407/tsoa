@@ -9,8 +9,8 @@ module.exports = {
     const cpy = (await import("cpy")).default;
     await cpy(
       [
-        "src/**/*.json", // Copy all .graphql files
-        "!src/**/*.{tsx,ts,js,jsx}", // Ignore already built files
+        "./**/*.json", // Copy all .graphql files
+        "!node_modules/", // Ignore already built files
       ],
       "dist"
     );
