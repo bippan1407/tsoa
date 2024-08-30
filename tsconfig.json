@@ -7,7 +7,7 @@
     "resolveJsonModule": true,
     "typeRoots": ["./node_modules/@types"],
     "sourceMap": true,
-    "outDir": "build",
+    "outDir": "dist",
     "strict": true,
     "lib": ["esnext"],
     "baseUrl": ".",
