@@ -7,12 +7,14 @@ module.exports = {
   postbuild: async () => {
     console.log("postbuild");
     const cpy = (await import("cpy")).default;
-    await cpy(
-      [
-        "./**/*.json", // Copy all .graphql files
-        "!node_modules/", // Ignore already built files
-      ],
-      "dist"
-    );
+    await cpy("src/**/*.json", "dist");
+    await cpy("config", "dist");
+    // await cpy(
+    //   [
+    //     "src/**/*.json", // Copy all given files
+    //     "!node_modules/", // Ignore already built files
+    //   ],
+    //   "dist"
+    // );
   },
 };

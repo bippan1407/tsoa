@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "rm -rf dist && concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
+    "dev": "rm -rf dist && tsoa spec-and-routes && nodemon",
+    "dev-async": "rm -rf dist && concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
     "build": "etsc",
     "start": "node ./dist/src/server.js"
   },
