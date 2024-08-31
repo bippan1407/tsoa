@@ -6,8 +6,8 @@ import express, {
   Request as ExRequest,
 } from "express";
 import swaggerUi from "swagger-ui-express";
-import { RegisterRoutes } from "../swagger/routes";
-import swagger from "../swagger/swagger.json";
+import { RegisterRoutes } from "../config/routes";
+import swagger from "../config/swagger.json";
 
 export const app = express();
 

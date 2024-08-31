@@ -3,10 +3,11 @@
   "noImplicitAdditionalProperties": "throw-on-extras",
   "controllerPathGlobs": ["src/**/*Controller.ts"],
   "spec": {
-    "outputDirectory": "swagger",
+    "outputDirectory": "config",
     "specVersion": 3
   },
   "routes": {
-    "routesDir": "swagger"
+    "routesDir": "config",
+    "controllerPathGlobs": ["src/controllers/"]
   }
 }

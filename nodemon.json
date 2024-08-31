@@ -1,5 +1,11 @@
 {
-  "ignore": ["src/**/*.test.ts", "node_modules", "swagger/", "dist/"],
+  "ignore": [
+    "src/**/*.test.ts",
+    "node_modules",
+    "swagger/",
+    "dist/",
+    "config/"
+  ],
   "ext": "ts,mjs,js,json",
   "exec": "etsc && node ./dist/src/server.js",
   "legacyWatch": true
