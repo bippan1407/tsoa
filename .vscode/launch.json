@@ -22,6 +22,12 @@
       "name": "LOCAL",
       "program": "${workspaceFolder}/src/server.ts",
       "outFiles": ["${workspaceFolder}/dist/**/*.js"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "ESBUILD WATCH",
+      "program": "${workspaceFolder}/esbuild.config.js"
     }
   ]
 }

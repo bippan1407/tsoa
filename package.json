@@ -7,7 +7,8 @@
     "dev": "rm -rf dist && tsoa spec-and-routes && nodemon",
     "dev-async": "rm -rf dist && concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
     "build": "etsc",
-    "start": "node ./dist/src/server.js"
+    "start": "node ./dist/src/server.js",
+    "esbuild": "rm -rf dist && tsoa spec-and-routes && node esbuild.config.js"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +21,6 @@
     "concurrently": "^8.2.2",
     "cpy": "^11.1.0",
     "esbuild": "^0.23.1",
-    "esbuild-node-tsc": "^2.0.5",
     "nodemon": "^3.1.4",
     "typescript": "^5.5.4"
   },

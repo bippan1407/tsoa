@@ -7,6 +7,6 @@
     "config/"
   ],
   "ext": "ts,mjs,js,json",
-  "exec": "etsc && node ./dist/src/server.js",
+  "exec": "node esbuild.config.js && node ./dist/server.js",
   "legacyWatch": true
 }

@@ -6,9 +6,8 @@ import express, {
   Request as ExRequest,
 } from "express";
 import swaggerUi from "swagger-ui-express";
-import { RegisterRoutes } from "../config/routes";
-import swagger from "../config/swagger.json";
-import teacher from "../routes/teacher.js";
+import swagger from "./config/swagger.json";
+import { RegisterRoutes } from "./config/routes";
 
 export const app = express();
 
@@ -20,7 +19,6 @@ app.use(
 );
 app.use(json());
 
-teacher(app);
 app.use("/docs", swaggerUi.serve, async (_req: ExRequest, res: ExResponse) => {
   return res.send(swaggerUi.generateHTML(swagger));
 });

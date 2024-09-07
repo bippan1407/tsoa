@@ -1,13 +1,26 @@
-const esbuild = require("esbuild");
-const esbuildPluginTsc = require("esbuild-plugin-tsc");
+const { build } = require("esbuild");
 
-esbuild.build({
-  // have to manually go through each files
-  entryPoints: ["src"],
+let postBuildPlugin = {
+  name: "post-build",
+  setup(build) {
+    build.onEnd(async (result) => {
+      console.log(`build ended with ${result.errors.length} errors`);
+      if (!result.errors.length) {
+        console.log("postbuild");
+        const cpy = (await import("cpy")).default;
+        await cpy("src/**/*.json", "dist");
+      }
+    });
+  },
+};
+
+build({
+  entryPoints: ["src/**"],
   bundle: false,
   outdir: "dist",
-  format: "esm",
+  format: "cjs",
   platform: "node",
   target: "esnext",
-  plugins: [esbuildPluginTsc()],
+  sourcemap: "both",
+  plugins: [postBuildPlugin],
 });
